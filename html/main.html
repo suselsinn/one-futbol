@@ -9,74 +9,97 @@
     <title>Document</title>
 </head>
 <body>
- <nav class="navbar bg-black py-2">
-    <div class="container-fluid">
-        <div class="row align-items-center w-100 m-0">
-            
-           
-            <div class="col-7 d-flex align-items-center">
-                <div class="d-flex align-items-center me-4">
-                    <img src="../imagenes/logo.jpg" alt="logo" height="24" class="me-2">
-                    <span class="text-white fw-bold">ONEFUTBOL</span>
-                </div>
-                <span class="text-white me-4">Partidos</span>
-                <span class="text-white me-4">Equipos</span>
-                <span class="text-white me-4">Competiciones</span>
-                <span class="text-white me-4">Apuestas</span>
-                <div class="border rounded px-2 py-1 d-flex align-items-center">
-                    <img src="../imagenes/logo.jpg" alt="logo tv" height="16" class="me-1">
-                    <span class="text-white" style="font-weight: 900;">TV</span>
-                </div>
-            </div>
+<nav class="navbar navbar-expand-lg bg-black py-2 sticky-top">
+    <div class="container-fluid px-4">
+        
+        <a class="navbar-brand d-flex align-items-center text-white fw-bold me-4" href="#">
+            <img src="../imagenes/logo.jpg" alt="logo" height="24" class="me-2">
+            ONEFUTBOL
+        </a>
 
-          
-            <div class="col-4 offset-1 d-flex align-items-center justify-content-end">
-                
-                <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+        <!-- Botón menú móvil -->
+        <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <i class="bi bi-list text-white fs-2"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav d-flex flex-column flex-lg-row align-items-lg-center gap-3 me-auto mb-3 mb-lg-0 list-unstyled mt-3 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white p-0" href="#">Partidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white p-0" href="#">Equipos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white p-0" href="#">Competiciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white p-0" href="#">Apuestas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white border border-secondary rounded px-2 py-1 d-flex align-items-center d-inline-flex" style="width: fit-content;" href="#">
+                        <img src="../imagenes/logo.jpg" alt="logo tv" height="16" class="me-1">
+                        <span class="fw-bold">TV</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="d-flex flex-wrap align-items-center gap-2">
+                <button class="btn btn-dark rounded-circle p-0 d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
                     <i class="bi bi-search text-white"></i>
-                </div>
-                
-                
-                <div class="vr bg-secondary me-3" style="height: 24px; width: 1px;"></div>
-                
-                
-                <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+                </button>
+                <div class="vr bg-secondary mx-1 d-none d-lg-block" style="height: 24px;"></div>
+                <button class="btn btn-dark rounded-circle p-0 d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
                     <i class="bi bi-gear text-white"></i>
-                </div>
-                
-                
-                <button class="btn btn-dark text-white border border-secondary me-2 px-3 rounded-pill">
+                </button>
+                <button class="btn btn-dark text-white border border-secondary px-3 rounded-pill ms-lg-1 mt-2 mt-lg-0">
                     Inicia sesión
                 </button>
-                
-                
-                <button class="btn btn-light text-dark fw-bold px-3 rounded-pill">
+                <button class="btn btn-light text-dark fw-bold px-3 rounded-pill mt-2 mt-lg-0">
                     Únete
                 </button>
             </div>
-
         </div>
     </div>
 </nav>
 
-<div class="py-3 px-3 d-flex justify-content-center align-items-center text-white" style="background: linear-gradient(90deg, #121212 30%, #b83280 85%, #ff4fa7 100%);">
-    <span class="me-4 fs-6 fw-normal">Toda la acción en directo. Sólo en OneFootball TV.</span>
-   <a href="#" class="btn btn-dark px-3 py-2 d-flex align-items-center text-decoration-none fw-bold" style="background-color: #000000; border: none; border-radius: 6px;">
-    <i class="bi bi-play-fill me-1 fs-5"></i> Ver ahora
-</a>
+<div class="py-3 px-3 d-flex flex-column flex-md-row justify-content-center align-items-center text-white text-center text-md-start" style="background: linear-gradient(90deg, #121212 30%, #b83280 85%, #ff4fa7 100%);">
+    <span class="me-md-4 mb-2 mb-md-0 fs-6 fw-normal">Toda la acción en directo. Sólo en OneFootball TV.</span>
+    <a href="#" class="btn btn-dark px-3 py-2 d-flex align-items-center text-decoration-none fw-bold justify-content-center" style="background-color: #000000; border: none; border-radius: 6px;">
+        <i class="bi bi-play-fill me-1 fs-5"></i> Ver ahora
+    </a>
 </div>
 
 <div class="row g-0">
-    <div class="col-1 sidebar-rayas"></div>
+    <div class="col-1 sidebar-rayas overflow-hidden d-none d-lg-block" style="position: sticky; top: 0; height: 100vh;">
+        <svg viewBox="0 0 640 690" preserveAspectRatio="xMidYMin slice" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-100 h-100 d-block">
+            <g clip-path="url(#zigzag-pattern-left_svg__a)">
+                <path d="m-4 145 93-92 136 137L361 8l135-182 1 1h1l1 2 148 341h1l2-3 39-78c1-3 0-5-1-8l-36-67-55-104-65-123a53726 53726 0 0 0-21-40l-3-4-262 362-4-4-56-70A741167 741167 0 0 0 89-90l-3-3-4 3-48 55L-4 6v139Z" fill="#1A1A24"></path>
+                <mask id="zigzag-pattern-left_svg__b" maskUnits="userSpaceOnUse" x="-4" y="501" width="552" height="630" style="mask-type: alpha;">
+                    <path d="M-4 502h552v629H-4V502Z" fill="#fff"></path>
+                </mask>
+                <g mask="url(#zigzag-pattern-left_svg__b)">
+                    <path d="m-4 567 24 12 82 41 136 68 134 68a18877 18877 0 0 1 32 17l4 2-3 9-65 221-37 124v2h61l2-4 129-236 50-91 3-5-4-3-197-104-175-93A653816 653816 0 0 0-1 503l-3-1v65Z" fill="#1A1A24"></path>
+                </g>
+                <path d="m-4 709 261 136-58 176-42-21-42-22a1561029 1561029 0 0 0-102 89v1l1 1 227 50h2l75-315-3-2-128-65-158-79-33-16v67Zm0-375 72-74 46 37-4 4L-1 440l-3 4 49 30 138-226-114-78-73 71v94Z" fill="#1A1A24"></path>
+                <path d="m126-525-5 18-28 113-34 135v1c-2 5-1 8 2 13l96 142 81 122a2619 2619 0 0 0 11 15l2 3 70-107-3-3a224629 224629 0 0 0-77-77l-52-52-54-52-18-18c-3-3-3-4-1-7l46-91 46-92c2-4 2-4 7-3l106 25 180 42 171 40 12 2c3 1 5 2 7 5l38 61 76 119 29 46c2 3 2 5 1 8L778 9 677 233a43925 43925 0 0 1-24 54l-3 4-57-122-56-123-57-123-3 3-50 76-89 132-56 84-87 129a771479 771479 0 0 1-85 126l-15 23-3 4 4 2 110 55 154 78 101 51 103 52 102 51 103 51 101 52 64 32 4 2 455-716L1178-5c-2 1-79 152-84 163l33 9 32 10 33 9 32 9 33 9a86486 86486 0 0 1-359 656l-5-2-61-36-192-112-203-119-172-101-49-29-5-2 2-5a2493269 2493269 0 0 1 209-347l49-82 4-6 2 4a88347 88347 0 0 1 32 89l63 170 55 152 7 19 2 4 6-13 43-89 68-141 70-148 86-179 12-27c2-2 2-4 0-7l-67-91-136-185a14 14 0 0 0-10-6l-124-21-126-20-119-20-101-16-108-18-4-1Z" fill="#1A1A24"></path>
+                <path d="m1135-211 409-300-54-90c-4 2-72 60-115 98l-114 99-114 99c-4-2-48-48-88-91l-87-91-87-92-96 157 3 5a2246147 2246147 0 0 0 178 245l29 41c3 3 3 6 1 9L875 106l-90 165-136 249-7 13-2 4-272-132c1-4 60-108 63-110l3 5 68 123c1 3 3 4 6 6l80 39h3a2179922 2179922 0 0 0-139-327l-2-4-152 283 364 228 422-791-233-273 58-80h2l1 1 2 2 220 281 1 1Z" fill="#1A1A24"></path>
+            </g>
+            <defs>
+                <clipPath id="zigzag-pattern-left_svg__a">
+                    <path fill="#fff" d="M0 0h640v690H0z"></path>
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
 
-    <div class="col-11 d-flex flex-column align-items-center mt-4 mb-5 main-content-area">
-        
+    <div class="col-12 col-lg-11 d-flex flex-column align-items-center mt-4 mb-5 px-3 px-lg-0 main-content-area">
         <div style="width: 100%; max-width: 900px;">
             <div class="mb-3">
                 <h4 class="text-white fw-bold">Top News</h4>
             </div>
 
-            <div class="top-news-card">
+            <div class="top-news-card w-100">
                 <div class="top-news-img-box">
                     <img src="../imagenes/foto de arriba.avif" alt="Carlos Espí">
                 </div>
@@ -101,57 +124,595 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-4 px-3 px-lg-0">
+    <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/1.avif" class="img-fluid rounded-5 news-thumb" alt="imagen2">    
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size:0.9rem; line-height:1.3;"> El Madrid mira a Eindhoven</h6>
+                <div class="top-news-footer mt-auto">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Dosis Futbolera · hace 2 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/2.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 3">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size:0.9rem; line-height:1.3;">Barcelona - Racing: Una visita de máxima exigencia</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>MuyDeFútbol · hace 2 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/3.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 3">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size:0.9rem; line-height:1.3;">Flick prepara rotaciones para mantener el pleno ante el Racing</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>SocBlaugrana · hace 2 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/4.jpeg" class="img-fluid rounded-5 news-thumb" alt="imagen 4">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size:0.9rem; line-height:1.3;">¿¡Perdón!? Tuchel lamenta no haber comido césped del Mundial</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Onefutbol · hace 2 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 col-lg-10 offset-lg-1 mt-4 px-3 px-lg-0">
+    <div class="row g-3">
+        <div class="col-12 col-lg-6">
+            <div class="d-flex flex-column flex-sm-row rounded-3 overflow-hidden h-100" style="background-color: #121212;">
+                <div class="col-12 col-sm-5 flex-shrink-0 p-0">
+                    <img src="../imagenes/5.jpeg" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1; display: block;" alt="">
+                </div>
+                <div class="col-12 col-sm-7 d-flex flex-column justify-content-between p-3 flex-grow-1">
+                    <div>
+                        <h6 class="text-white fw-bold mb-2" style="font-size: 0.95rem; line-height: 1.3;">Aubameyang de vuelta haciendo historia: cinco partidos, cinco goles y un récord histórico</h6>
+                        <p class="text-secondary mb-0" style="font-size: 0.8rem; line-height: 1.35;">Pierre-Emerick Aubameyang sigue demostrando que la edad no es un obstáculo para mantener el olfato goleador. A sus 37 años, el delantero gabonés ha comenzado la temporada de forma espectacular...</p>
+                    </div>
+                    <div class="top-news-footer mt-2">
+                        <div class="top-news-source">
+                            <span class="top-news-icon"></span>
+                            <span></span>
+                        </div>
+                        <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="d-flex flex-column flex-sm-row rounded-3 overflow-hidden h-100" style="background-color: #121212;">
+                <div class="col-12 col-sm-5 flex-shrink-0 p-0">
+                    <img src="../imagenes/6.avif" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1; display: block;" alt="">
+                </div>
+                <div class="col-12 col-sm-7 d-flex flex-column justify-content-between p-3 flex-grow-1">
+                    <div>
+                        <h6 class="text-white fw-bold mb-2" style="font-size: 0.95rem; line-height: 1.3;">El Atlético de Madrid acecha al próximo 'Dibu' Martínez</h6>
+                        <p class="text-secondary mb-0" style="font-size: 0.8rem; line-height: 1.35;">El Atlético de Madrid ya piensa en sustituir a Jan Oblak. El meta esloveno, que es toda una institución en el colchonero, está dando sus últimos coletazos de una brillante...</p>
+                    </div>
+                    <div class="top-news-footer mt-2">
+                        <div class="top-news-source">
+                            <span class="top-news-icon"></span>
+                            <span></span>
+                        </div>
+                        <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-4 px-3 px-lg-0">
+    <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/7.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 7">    
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Mbappé, Vinicius y Konaté tapan el mensaje de Ceuta en el Madrid-Elche</h6>
+                <div class="top-news-footer mt-auto">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>OffsAIde · hace 11 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/8.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 8">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Mourinho: "Me preocupa perder el control, pero hemos ganado"</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Offsider · hace 11 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/9.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 9">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">«No hay ninguna guerra»: nuevo giro entre Mbappé y Dembélé</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>futbolfrances.c... · hace 11 hor...</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/11.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 10">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Rescates, líos y el Camp Nou: las claves de la jornada futbolística</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>OneFootball · hace 2 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-4 px-3 px-lg-0">
+    <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/12.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 11">    
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">PORTADAS: Carlos Espí salva al Madrid; el Barça mira a la Champions 2029</h6>
+                <div class="top-news-footer mt-auto">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>OneFootball · hace 2 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/13.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 12">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">El Barça sonríe: Jonathan David podría acercar a Julián Álvarez al Camp Nou</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>futbolfrances.c... · hace 11 hor...</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/14.webp" class="img-fluid rounded-5 news-thumb" alt="imagen 13">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Tchouaméni acelera su regreso en el Real Madrid y Mourinho ya piensa en el derbi</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Superlider · hace 10 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/15.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 14">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Renovación de Kane: la estrella del Bayern exige cláusula especial</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>FCBinside · hace 4 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-4 px-3 px-lg-0">
+    <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/16.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 15">    
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Elche 2-3 Real Madrid: Carlos Espí vuelve a ser protagonista</h6>
+                <div class="top-news-footer mt-auto">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>MuyDeFútbol · hace 11 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/17.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 16">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Endrick vuelve a quedar en el aire en el Real Madrid: enero será clave para su futuro</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Superlider · hace 11 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/18.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 17">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Scaloni CONVOCA a Messi: El 10 tendrá su gran DESPEDIDA en Argentina</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>OneFootball · hace 12 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/19.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 18">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">¿Qué HICIERON Vini y Mbappé? POLÉMICA por el mensaje de apoyo a Ceuta</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>OneFootball · hace 12 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 col-lg-10 mx-auto position-relative py-4 px-3 px-lg-0">
+
+    <div class="position-absolute top-0 end-100 me-3 h-100 overflow-hidden d-none d-xl-block" style="width: 80px; pointer-events: none;">
+        <svg viewBox="0 0 640 690" preserveAspectRatio="xMidYMin slice" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-100 h-100 d-block">
+            <g clip-path="url(#zigzag-pattern-left_svg__a)">
+                <path d="m-4 145 93-92 136 137L361 8l135-182 1 1h1l1 2 148 341h1l2-3 39-78c1-3 0-5-1-8l-36-67-55-104-65-123a53726 53726 0 0 0-21-40l-3-4-262 362-4-4-56-70A741167 741167 0 0 0 89-90l-3-3-4 3-48 55L-4 6v139Z" fill="#1A1A24"></path>
+                <g mask="url(#zigzag-pattern-left_svg__b)">
+                    <path d="m-4 567 24 12 82 41 136 68 134 68a18877 18877 0 0 1 32 17l4 2-3 9-65 221-37 124v2h61l2-4 129-236 50-91 3-5-4-3-197-104-175-93A653816 653816 0 0 0-1 503l-3-1v65Z" fill="#1A1A24"></path>
+                </g>
+                <path d="m-4 709 261 136-58 176-42-21-42-22a1561029 1561029 0 0 0-102 89v1l1 1 227 50h2l75-315-3-2-128-65-158-79-33-16v67Zm0-375 72-74 46 37-4 4L-1 440l-3 4 49 30 138-226-114-78-73 71v94Z" fill="#1A1A24"></path>
+                <path d="m126-525-5 18-28 113-34 135v1c-2 5-1 8 2 13l96 142 81 122a2619 2619 0 0 0 11 15l2 3 70-107-3-3a224629 224629 0 0 0-77-77l-52-52-54-52-18-18c-3-3-3-4-1-7l46-91 46-92c2-4 2-4 7-3l106 25 180 42 171 40 12 2c3 1 5 2 7 5l38 61 76 119 29 46c2 3 2 5 1 8L778 9 677 233a43925 43925 0 0 1-24 54l-3 4-57-122-56-123-57-123-3 3-50 76-89 132-56 84-87 129a771479 771479 0 0 1-85 126l-15 23-3 4 4 2 110 55 154 78 101 51 103 52 102 51 103 51 101 52 64 32 4 2 455-716L1178-5c-2 1-79 152-84 163l33 9 32 10 33 9 32 9 33 9a86486 86486 0 0 1-359 656l-5-2-61-36-192-112-203-119-172-101-49-29-5-2 2-5a2493269 2493269 0 0 1 209-347l49-82 4-6 2 4a88347 88347 0 0 1 32 89l63 170 55 152 7 19 2 4 6-13 43-89 68-141 70-148 86-179 12-27c2-2 2-4 0-7l-67-91-136-185a14 14 0 0 0-10-6l-124-21-126-20-119-20-101-16-108-18-4-1Z" fill="#1A1A24"></path>
+                <path d="m1135-211 409-300-54-90c-4 2-72 60-115 98l-114 99-114 99c-4-2-48-48-88-91l-87-91-87-92-96 157 3 5a2246147 2246147 0 0 0 178 245l29 41c3 3 3 6 1 9L875 106l-90 165-136 249-7 13-2 4-272-132c1-4 60-108 63-110l3 5 68 123c1 3 3 4 6 6l80 39h3a2179922 2179922 0 0 0-139-327l-2-4-152 283 364 228 422-791-233-273 58-80h2l1 1 2 2 220 281 1 1Z" fill="#1A1A24"></path>
+            </g>
+        </svg>
+    </div>
+
+    <div class="row g-4 mb-4 position-relative" style="z-index: 1;">
+        <div class="col-12 col-lg-6">
+            <div class="d-flex flex-column flex-sm-row h-100 overflow-hidden" style="background-color: #212429; border: 1px solid #2e323b; border-radius: 20px;">
+                <div class="col-12 col-sm-5 flex-shrink-0 p-0" style="min-height: 160px;">
+                    <img src="../imagenes/partido 1.webp" alt="Partido" class="w-100 h-100" style="object-fit: cover;">
+                </div>
+                <div class="col-12 col-sm-7 p-3 p-sm-4 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                        <h6 class="text-white fw-bold mb-2 lh-sm" style="font-size: 0.95rem;">
+                            Manchester United vs Manchester City – Pronóstico, dónde ver,...
+                        </h6>
+                        <p class="text-white-50 small mb-3" style="font-size: 0.8rem; line-height: 1.4;">
+                            El derbi de la ciudad vuelve a escena con el Manchester United vs. Manchester City, en un partido...
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-secondary" style="font-size: 0.75rem;">
+                        <span class="text-white-50">Adriana García</span>
+                        <i class="bi bi-patch-check-fill text-primary" style="font-size: 0.75rem;"></i>
+                        <span>• Hace 24 días</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="d-flex flex-column flex-sm-row h-100 overflow-hidden" style="background-color: #212429; border: 1px solid #2e323b; border-radius: 20px;">
+                <div class="col-12 col-sm-5 flex-shrink-0 p-0" style="min-height: 160px;">
+                    <img src="../imagenes/partido 2.webp" alt="Partido" class="w-100 h-100" style="object-fit: cover;">
+                </div>
+                <div class="col-12 col-sm-7 p-3 p-sm-4 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                        <h6 class="text-white fw-bold mb-2 lh-sm" style="font-size: 0.95rem;">
+                            Levante vs Barcelona – Pronóstico, dónde ver, horario y alineaciones...
+                        </h6>
+                        <p class="text-white-50 small mb-3" style="font-size: 0.8rem; line-height: 1.4;">
+                            Levante y FC Barcelona se verán las caras en un interesante partido correspondiente a la jornada 5 de...
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-secondary" style="font-size: 0.75rem;">
+                        <span class="text-white-50">Adriana García</span>
+                        <i class="bi bi-patch-check-fill text-primary" style="font-size: 0.75rem;"></i>
+                        <span>• Hace 24 días</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 position-relative" style="z-index: 1;">
+        <div class="col-12 col-md-6 col-xl-4">
+            <div class="d-flex flex-column h-100 overflow-hidden" style="background-color: #212429; border: 1px solid #2e323b; border-radius: 20px;">
+                <div class="w-100" style="height: 160px;">
+                    <img src="../imagenes/partido 3.webp" alt="Partido" class="w-100 h-100" style="object-fit: cover;">
+                </div>
+                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                        <h6 class="text-white fw-bold mb-3 lh-sm" style="font-size: 0.95rem;">
+                            Celta Vigo vs Málaga – Pronóstico, dónde ver, horario y alineaciones 13-09
+                        </h6>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-secondary" style="font-size: 0.75rem;">
+                        <span class="text-white-50">Adriana García</span>
+                        <i class="bi bi-patch-check-fill text-primary" style="font-size: 0.75rem;"></i>
+                        <span>• Hace 24 días</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+            <div class="d-flex flex-column h-100 overflow-hidden" style="background-color: #212429; border: 1px solid #2e323b; border-radius: 20px;">
+                <div class="w-100" style="height: 160px;">
+                    <img src="../imagenes/partido 4.webp" alt="Partido" class="w-100 h-100" style="object-fit: cover;">
+                </div>
+                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                        <h6 class="text-white fw-bold mb-3 lh-sm" style="font-size: 0.95rem;">
+                            Real Madrid vs Rayo Vallecano – Pronóstico, dónde ver, horario y alineaciones 12-09
+                        </h6>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-secondary" style="font-size: 0.75rem;">
+                        <span class="text-white-50">Adriana García</span>
+                        <i class="bi bi-patch-check-fill text-primary" style="font-size: 0.75rem;"></i>
+                        <span>• Hace 25 días</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+            <div class="d-flex flex-column h-100 overflow-hidden" style="background-color: #212429; border: 1px solid #2e323b; border-radius: 20px;">
+                <div class="w-100" style="height: 160px;">
+                    <img src="../imagenes/partido 5.webp" alt="Partido" class="w-100 h-100" style="object-fit: cover;">
+                </div>
+                <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div>
+                        <h6 class="text-white fw-bold mb-3 lh-sm" style="font-size: 0.95rem;">
+                            Sunderland vs Arsenal – Pronóstico, dónde ver, horario y alineaciones 12-09
+                        </h6>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-secondary" style="font-size: 0.75rem;">
+                        <span class="text-white-50">Adriana García</span>
+                        <i class="bi bi-patch-check-fill text-primary" style="font-size: 0.75rem;"></i>
+                        <span>• Hace 25 días</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-4 px-3 px-lg-0">
+    <div class="col-12 col-lg-10 offset-lg-1">
+        
+        <h5 class="fw-bold mb-3 text-white" style="font-size: 1rem;">México</h5>
+
+        <div class="d-flex flex-column flex-md-row rounded-3 overflow-hidden border border-secondary" style="min-height: 280px; background-color: #0d0d0d;">
+            <div class="col-12 col-md-7 p-0">
+                <img src="../imagenes/21.jpeg" class="w-100 h-100" style="object-fit: cover; display: block;" alt="Tuchel">
+            </div>
+
+            <div class="col-12 col-md-5 d-flex flex-column justify-content-between p-4" style="background-color: #0d0d0d;">
+                <div>
+                    <h5 class="fw-bold text-white mb-3" style="line-height: 1.35; font-size: 1.15rem;">
+                        Tuchel sobre el México - Inglaterra: "Me arrepiento de no haber comido algo del césped"
+                    </h5>
+                    <p class="text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.45;">
+                        Thomas Tuchel sorprendió con sus declaraciones en el podcast con Daniel Sturridgeen donde habló del partido entre México e Inglaterra en los octavos de final de la Copa del Mundo."Le...
+                    </p>
+                </div>
+
+                <div class="top-news-footer d-flex justify-content-between align-items-center mt-3 pt-2">
+                    <div class="top-news-source d-flex align-items-center gap-2">
+                        <img src="../imagenes/logo.jpg" alt="OneFootball" class="rounded-circle" style="width: 16px; height: 16px; object-fit: cover;">
+                        <span class="text-secondary" style="font-size: 0.8rem;">OneFootball · hace 5 horas</span>
+                    </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
-<div class="row g-3 mt-4">
-    <div class="col-md-1">
 
-    </div>
-    <div class="col-md-2">
-<img src="../imagenes/1.avif" class="img-fluid rounded-3 news-thumb" alt="imagen2">    
-<h6 class="text-white fw-bold mt-2 mb-2" style="font-size:0,9; line-height:1,3;">El Madrid mira hacia Eindhoven</h6>
- <div class="top-news-footer mt-5">
-                        <div class="top-news-source">
-                            <span class="top-news-icon"></span>
-                            <span>Dosis Futbolera · hace 2 horas</span>
-                        </div>
-                        <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+<div class="row g-3 mt-4 px-3 px-lg-0">
+    <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/22.jpeg" class="img-fluid rounded-5 news-thumb" alt="imagen 22">    
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Aguirre dimite tras la eliminación de México y ya hay sucesor</h6>
+                <div class="top-news-footer mt-auto">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Fussballdaten.de · hace 7 horas</span>
                     </div>
-    </div>
-    <div class="col-md-2">
-        <img src="../imagenes/2.avif" class="img-fluid rounded-3 news-thumb" alt="imagen 3">
- <div class="top-news-footer">
-                        <div class="top-news-source">
-                            <span class="top-news-icon"></span>
-                            <span>MuyDeFútbol · hace 2 horas</span>
-                        </div>
-                        <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/23.jpeg" class="img-fluid rounded-5 news-thumb" alt="imagen 23">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Mundial 2026: ¿Contra quién juega México en octavos?</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Fussballdaten.de · hace 7 horas</span>
                     </div>
-    </div>
-    <div class="col-md-2">
-        <img src="../imagenes/3.avif" class="img-fluid rounded-3 news-thumb" alt="imagen 3">
- <div class="top-news-footer">
-                        <div class="top-news-source">
-                            <span class="top-news-icon"></span>
-                            <span>SocBlaugrana · hace 2 horas</span>
-                        </div>
-                        <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/24.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 24">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">Mundial 2026: ¿Quién es el rival de Inglaterra en cuartos?</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Fussballdaten.de · hace 8 horas</span>
                     </div>
-    </div>
-    <div class="col-md-2">
-<img src="../imagenes/4.jpeg" class="img-fluid rounded-3 news-thumb" alt="imagen 4">
- <div class="top-news-footer">
-                        <div class="top-news-source">
-                            <span class="top-news-icon"></span>
-                            <span>Onefutbol · hace 2 horas</span>
-                        </div>
-                        <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <img src="../imagenes/25.avif" class="img-fluid rounded-5 news-thumb" alt="imagen 25">
+                <h6 class="text-white fw-bold mt-2 mb-2" style="font-size: 0.9rem; line-height: 1.3;">A diferencia de los favoritos: México avanza a octavos sin sufrir</h6>
+                <div class="top-news-footer">
+                    <div class="top-news-source">
+                        <span class="top-news-icon"></span>
+                        <span>Fussballdaten.de · hace 8 horas</span>
                     </div>
+                    <i class="bi bi-bookmark text-white fs-5" style="cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
 
-    <script src="../js/bootstrap.min.js"></script>
+<footer class="bg-black text-white pt-5 pb-4 mt-5">
+    <div class="row g-0">
+        <div class="col-12 col-lg-10 offset-lg-1 px-4 px-lg-0">
+            
+            <h5 class="fw-bold mb-4" style="font-size: 1.15rem;">Sigue a OneFootball</h5>
+
+            <div class="row g-3 pb-5 mb-5 border-bottom border-dark">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="d-flex flex-column p-3 rounded-2 text-decoration-none text-white h-100" style="background-color: #1a1a1a;">
+                        <i class="bi bi-instagram fs-5 mb-2"></i>
+                        <span class="fw-semibold" style="font-size: 0.85rem;">Instagram</span>
+                        <span class="text-secondary" style="font-size: 0.75rem;">@onefootball</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="d-flex flex-column p-3 rounded-2 text-decoration-none text-white h-100" style="background-color: #1a1a1a;">
+                        <i class="bi bi-facebook fs-5 mb-2"></i>
+                        <span class="fw-semibold" style="font-size: 0.85rem;">Facebook</span>
+                        <span class="text-secondary" style="font-size: 0.75rem;">@OneFootball.de</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="d-flex flex-column p-3 rounded-2 text-decoration-none text-white h-100" style="background-color: #1a1a1a;">
+                        <i class="bi bi-twitter-x fs-5 mb-2"></i>
+                        <span class="fw-semibold" style="font-size: 0.85rem;">Twitter</span>
+                        <span class="text-secondary" style="font-size: 0.75rem;">@OneFootball</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="d-flex flex-column p-3 rounded-2 text-decoration-none text-white h-100" style="background-color: #1a1a1a;">
+                        <i class="bi bi-youtube fs-5 mb-2"></i>
+                        <span class="fw-semibold" style="font-size: 0.85rem;">Youtube</span>
+                        <span class="text-secondary" style="font-size: 0.75rem;">@OneFootball</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="d-flex flex-column p-3 rounded-2 text-decoration-none text-white h-100" style="background-color: #1a1a1a;">
+                        <i class="bi bi-tiktok fs-5 mb-2"></i>
+                        <span class="fw-semibold" style="font-size: 0.85rem;">TikTok</span>
+                        <span class="text-secondary" style="font-size: 0.75rem;">@onefootball</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="d-flex flex-column p-3 rounded-2 text-decoration-none text-white h-100" style="background-color: #1a1a1a;">
+                        <i class="bi bi-broadcast-pin fs-5 mb-2"></i>
+                        <span class="fw-semibold" style="font-size: 0.85rem;">AudioBoom</span>
+                        <span class="text-secondary" style="font-size: 0.75rem;">@OneFootball</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mb-4">
+                <img src="../imagenes/logo.jpg" alt="logo" height="24" class="me-2">
+                <span class="fw-bold fs-5 tracking-wide">ONEFOOTBALL</span>
+            </div>
+
+            <div class="row g-4 text-secondary mb-5" style="font-size: 0.85rem;">
+                <div class="col-6 col-md-4 col-lg">
+                    <h6 class="text-white fw-bold mb-3 text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Enlaces rápidos</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="text-secondary text-decoration-none">Todos los partidos</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Todos los equipos</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Todas las competiciones</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Apuestas España</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Apuestas Peru</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Apuestas Chile</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Apuestas México</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Apuestas Colombia</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <h6 class="text-white fw-bold mb-3 text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Nosotros</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="text-secondary text-decoration-none">Empresa</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Vacantes</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Contacto</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Centro de ayuda</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <h6 class="text-white fw-bold mb-3 text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Asociarse con nosotros</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="text-secondary text-decoration-none">Ventas</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">CLFP</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Publicaciones</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Soluciones de Marca</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <h6 class="text-white fw-bold mb-3 text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Legal</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="text-secondary text-decoration-none">Aviso Legal</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Política de privacidad</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Información sobre la DSA de la UE</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Declaración de accesibilidad</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Política editorial</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Licencias</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">OFC White Paper</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Configuración de privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg">
+                    <h6 class="text-white fw-bold mb-3 text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Más OneFootball</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li><a href="#" class="text-secondary text-decoration-none">App Store</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Google Play</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Merch de OneFootball</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">TV App</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-secondary pt-3" style="font-size: 0.8rem;">
+                © 2026 OneFootball
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
