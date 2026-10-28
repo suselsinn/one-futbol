@@ -1,12 +1,136 @@
 
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>contrataciones</title>
-    </head>
-    <body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratación - OneFootball TV</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-black text-white min-vh-100 d-flex flex-column justify-content-between">
+
+    <nav class="navbar navbar-expand-lg bg-black py-2 sticky-top border-bottom border-dark">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="index.html">
+                <img src="../imagenes/logo.jpg" alt="logo" height="24" class="me-2">
+                ONEFOOTBALL
+            </a>
+            <a href="index.html" class="btn btn-outline-secondary btn-sm text-white rounded-pill px-3">
+                <i class="bi bi-x-lg me-1"></i> Cancelar
+            </a>
+        </div>
+    </nav>
+
+    <main class="container my-5" style="max-width: 800px;">
         
-    </body>
-    </html>
+        <div class="mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="fw-bold text-white-50" id="step-indicator">Paso 1 de 6</span>
+                <span class="fw-bold text-success" id="step-title">1. Selección de Producto</span>
+            </div>
+            <div class="progress bg-dark border border-secondary" style="height: 8px;">
+                <div class="progress-bar bg-success" id="progress-bar" role="progressbar" style="width: 16.66%;"></div>
+            </div>
+        </div>
+
+        <div id="error-summary" class="alert alert-danger bg-dark text-danger border border-danger d-none rounded-3 mb-4" role="alert">
+            <h6 class="fw-bold text-white mb-2"><i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>Revisa los siguientes errores antes de continuar:</h6>
+            <ul class="mb-0 ps-3 small text-white-50" id="error-list"></ul>
+        </div>
+
+        <form id="form-contratacion" novalidate>
+
+            <fieldset class="step-step" id="step-1">
+                <h4 class="fw-bold text-white mb-3">Elige tu plan principal</h4>
+                <p class="text-secondary small mb-4">Selecciona el plan que mejor se adapte a tus necesidades[cite: 2].</p>
+                <div class="row g-3" id="productos-container">
+                    <p class="text-white-50">[Cargando planes de OneFootball TV...]</p>
+                </div>
+            </fieldset>
+
+            <fieldset class="step-step d-none" id="step-2">
+                <h4 class="fw-bold text-white mb-3">Añade complementos opcionales</h4>
+                <p class="text-secondary small mb-4">Mejora tu experiencia con servicios adicionales[cite: 2].</p>
+                <div class="row g-3" id="complementos-container">
+                    <p class="text-white-50">[Cargando complementos...]</p>
+                </div>
+            </fieldset>
+
+            <fieldset class="step-step d-none" id="step-3">
+                <h4 class="fw-bold text-white mb-3">Datos personales</h4>
+                <p class="text-secondary small mb-4">Debes ser mayor de 18 años para contratar[cite: 2, 3].</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label for="nombre" class="form-label text-white-50 small">Nombre *</label>
+                        <input type="text" class="form-control bg-dark text-white border-secondary" id="nombre">
+                        <div class="invalid-feedback">Introduce tu nombre.</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="apellidos" class="form-label text-white-50 small">Apellidos *</label>
+                        <input type="text" class="form-control bg-dark text-white border-secondary" id="apellidos">
+                        <div class="invalid-feedback">Introduce tus apellidos.</div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="step-step d-none" id="step-4">
+                <h4 class="fw-bold text-white mb-3">Dirección de facturación</h4>
+                <p class="text-secondary small mb-4">Solo válido para direcciones en España[cite: 2, 3].</p>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="direccion" class="form-label text-white-50 small">Calle / Vía *</label>
+                        <input type="text" class="form-control bg-dark text-white border-secondary" id="direccion">
+                        <div class="invalid-feedback">Introduce una dirección válida.</div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="step-step d-none" id="step-5">
+                <h4 class="fw-bold text-white mb-3">Método de pago</h4>
+                <p class="text-secondary small mb-4">Elige cómo quieres abonar tu suscripción[cite: 2].</p>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <p class="text-white-50 small">[Formulario condicional de pago en Tarea 6]</p>
+                    </div>
+                </div>
+            </fieldset>
+
+         
+            <fieldset class="step-step d-none" id="step-6">
+                <h4 class="fw-bold text-white mb-3">Revisión de la solicitud</h4>
+                <p class="text-secondary small mb-4">Revisa que toda la información introducida sea correcta[cite: 2].</p>
+                <div class="bg-dark p-4 rounded-3 border border-secondary mb-4">
+                    <h6 class="text-success fw-bold">Resumen de contratación</h6>
+                    <div id="resumen-final" class="small text-white-50 mt-2">
+               
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="d-flex justify-content-between align-items-center mt-5 pt-3 border-top border-dark">
+                <button type="button" class="btn btn-outline-secondary text-white rounded-pill px-4 d-none" id="btn-anterior">
+                    <i class="bi bi-arrow-left me-1"></i> Anterior
+                </button>
+                <div class="ms-auto">
+                    <button type="button" class="btn btn-success text-black fw-bold rounded-pill px-4" id="btn-siguiente">
+                        Siguiente <i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                    <button type="submit" class="btn btn-success text-black fw-bold rounded-pill px-4 d-none" id="btn-confirmar">
+                        Confirmar solicitud <i class="bi bi-check-lg ms-1"></i>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </main>
+
+    <footer class="text-center py-3 text-secondary small border-top border-dark">
+        © 2026 OneFootball TV · Simulación de contratación
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/contratacion.js"></script>
+</body>
+</html>
