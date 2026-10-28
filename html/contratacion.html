@@ -129,6 +129,116 @@
     <footer class="text-center py-3 text-secondary small border-top border-dark">
         © 2026 OneFootball TV · Simulación de contratación
     </footer>
+    <fieldset class="step-step" id="step-1">
+    <h4 class="fw-bold text-white mb-1">1. Elige tu plan principal</h4>
+    <p class="text-secondary small mb-4">Selecciona una de las siguientes suscripciones (obligatorio).</p>
+    
+    <div class="row g-3" id="productos-container">
+        <div class="col-12 col-md-4">
+            <div class="card bg-dark text-white border-secondary h-100 card-plan p-3 cursor-pointer" data-plan="basico" data-precio="0">
+                <div class="form-check text-end">
+                    <input class="form-check-input" type="radio" name="plan_principal" id="plan-basico" value="basico">
+                </div>
+                <div class="card-body p-0">
+                    <span class="badge bg-secondary mb-2">Gratuito</span>
+                    <h5 class="fw-bold text-white">Plan Básico</h5>
+                    <h3 class="fw-bold text-white my-3">0 € <small class="fs-6 text-secondary">/ mes</small></h3>
+                    <ul class="list-unstyled small text-secondary mb-0">
+                        <li><i class="bi bi-check2 text-success me-2"></i>Noticias en directo</li>
+                        <li><i class="bi bi-check2 text-success me-2"></i>Estadísticas básicas</li>
+                        <li><i class="bi bi-x-lg text-danger me-2"></i>Sin partidos en 4K</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card bg-dark text-white border-success h-100 card-plan p-3 cursor-pointer" data-plan="tvpass" data-precio="9.99">
+                <div class="form-check text-end">
+                    <input class="form-check-input" type="radio" name="plan_principal" id="plan-tvpass" value="tvpass">
+                </div>
+                <div class="card-body p-0">
+                    <span class="badge bg-success text-black fw-bold mb-2">Más Popular</span>
+                    <h5 class="fw-bold text-white">Plan TV Pass</h5>
+                    <h3 class="fw-bold text-white my-3">9,99 € <small class="fs-6 text-secondary">/ mes</small></h3>
+                    <ul class="list-unstyled small text-secondary mb-0">
+                        <li><i class="bi bi-check2 text-success me-2"></i>Todo el Plan Básico</li>
+                        <li><i class="bi bi-check2 text-success me-2"></i>Partidos en directo HD</li>
+                        <li><i class="bi bi-check2 text-success me-2"></i>Resúmenes exclusivos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card bg-dark text-white border-secondary h-100 card-plan p-3 cursor-pointer" data-plan="vip" data-precio="19.99">
+                <div class="form-check text-end">
+                    <input class="form-check-input" type="radio" name="plan_principal" id="plan-vip" value="vip">
+                </div>
+                <div class="card-body p-0">
+                    <span class="badge bg-warning text-dark fw-bold mb-2">Todo Incluido</span>
+                    <h5 class="fw-bold text-white">Plan VIP All-Access</h5>
+                    <h3 class="fw-bold text-white my-3">19,99 € <small class="fs-6 text-secondary">/ mes</small></h3>
+                    <ul class="list-unstyled small text-secondary mb-0">
+                        <li><i class="bi bi-check2 text-success me-2"></i>Todo el Plan TV Pass</li>
+                        <li><i class="bi bi-check2 text-success me-2"></i>Acceso Multi-pantalla 4K</li>
+                        <li><i class="bi bi-check2 text-success me-2"></i>Sin anuncios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="invalid-feedback d-block mt-2 id-error-plan d-none" id="error-plan">
+        Debes seleccionar un plan principal para continuar.
+    </div>
+</fieldset>
+
+<fieldset class="step-step d-none" id="step-2">
+    <h4 class="fw-bold text-white mb-1">2. Complementos opcionales</h4>
+    <p class="text-secondary small mb-3">Añade mejoras a tu cuenta (puedes elegir 0, 1 o varios).</p>
+
+    <div class="alert alert-warning bg-dark text-warning border-warning small rounded-3 mb-4 d-flex align-items-center gap-2" role="alert">
+        <i class="bi bi-info-circle-fill fs-5 flex-shrink-0"></i>
+        <span><strong>Incompatibilidad:</strong> El complemento <em>Multi-pantalla 4K</em> requiere disponer del <strong>Plan TV Pass</strong> o <strong>Plan VIP</strong>. No es compatible con el Plan Básico.</span>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-12 col-md-6">
+            <div class="card bg-dark text-white border-secondary h-100 p-3">
+                <div class="form-check">
+                    <input class="form-check-input check-complemento" type="checkbox" id="comp-sms" value="sms" data-nombre="Alertas SMS en Directo" data-precio="1.99" data-tipo="recurrente">
+                    <label class="form-check-label fw-bold text-white ms-2" for="comp-sms">
+                        Alertas SMS en Directo
+                    </label>
+                </div>
+                <div class="ms-4 mt-2">
+                    <p class="text-secondary small mb-1">Recibe goles y tarjetas en tiempo real en tu móvil.</p>
+                    <span class="fw-bold text-success small">+1,99 € / mes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="card bg-dark text-white border-secondary h-100 p-3" id="card-comp-4k">
+                <div class="form-check">
+                    <input class="form-check-input check-complemento" type="checkbox" id="comp-4k" value="4k" data-nombre="Multi-pantalla 4K Ultra" data-precio="3.99" data-tipo="recurrente">
+                    <label class="form-check-label fw-bold text-white ms-2" for="comp-4k">
+                        Multi-pantalla 4K Ultra
+                    </label>
+                </div>
+                <div class="ms-4 mt-2">
+                    <p class="text-secondary small mb-1">Hasta 4 dispositivos simultáneos en calidad 4K.</p>
+                    <span class="fw-bold text-success small">+3,99 € / mes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 p-3 bg-dark rounded-3 border border-secondary d-flex justify-content-between align-items-center">
+        <span class="text-white-50 small">Total cuota recurrente estimada:</span>
+        <span class="fw-bold text-success fs-5" id="precio-total-display">0,00 € / mes</span>
+    </div>
+</fieldset>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/contratacion.js"></script>

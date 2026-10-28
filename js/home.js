@@ -108,3 +108,113 @@ document.addEventListener('DOMContentLoaded', () => {
   
     updateStepVisibility();
 });
+const estadoContratacion = {
+    plan: null,
+    complementos: []
+};
+
+function initPaso1() {
+    const cardsPlan = document.querySelectorAll('.card-plan');
+    
+    cardsPlan.forEach(card => {
+        card.addEventListener('click', () => {
+            const radio = card.querySelector('input[type="radio"]');
+            radio.checked = true;
+
+            cardsPlan.forEach(c => {
+                c.classList.remove('border-success', 'bg-black');
+                c.classList.add('border-secondary', 'bg-dark');
+            });
+            card.classList.remove('border-secondary', 'bg-dark');
+            card.classList.add('border-success', 'bg-black');
+
+            estadoContratacion.plan = {
+                id: card.dataset.plan,
+                precio: parseFloat(card.dataset.precio),
+                nombre: card.querySelector('h5').textContent
+            };
+
+            document.getElementById('error-plan').classList.add('d-none');
+
+            verificarIncompatibilidad4K();
+            actualizarTotalCalculado();
+        });
+    });
+}
+
+function initPaso2() {
+    const checkboxes = document.querySelectorAll('.check-complemento');
+    
+    checkboxes.forEach(chk => {
+        chk.addEventListener('change', () => {
+            actualizarComplementosSeleccionados();
+            actualizarTotalCalculado();
+        });
+    });
+}
+
+function actualizarComplementosSeleccionados() {
+    estadoContratacion.complementos = [];
+    const checkboxes = document.querySelectorAll('.check-complemento:checked:not(:disabled)');
+    
+    checkboxes.forEach(chk => {
+        estadoContratacion.complementos.push({
+            id: chk.value,
+            nombre: chk.dataset.nombre,
+            precio: parseFloat(chk.dataset.precio)
+        });
+    });
+}
+
+function verificarIncompatibilidad4K() {
+    const check4K = document.getElementById('comp-4k');
+    const card4K = document.getElementById('card-comp-4k');
+
+    if (!estadoContratacion.plan || estadoContratacion.plan.id === 'basico') {
+        check4K.checked = false;
+        check4K.disabled = true;
+        card4K.classList.add('opacity-50');
+        card4K.title = "No compatible con el Plan Básico";
+    } else {
+        check4K.disabled = false;
+        card4K.classList.remove('opacity-50');
+        card4K.title = "";
+    }
+    actualizarComplementosSeleccionados();
+}
+
+function actualizarTotalCalculado() {
+    let totalMensual = 0;
+
+    if (estadoContratacion.plan) {
+        totalMensual += estadoContratacion.plan.precio;
+    }
+
+    estadoContratacion.complementos.forEach(c => {
+        totalMensual += c.precio;
+    });
+
+    const display = document.getElementById('precio-total-display');
+    if (display) {
+        display.textContent = `${totalMensual.toFixed(2).replace('.', ',')} € / mes`;
+    }
+}
+
+function validarPaso1() {
+    if (!estadoContratacion.plan) {
+        document.getElementById('error-plan').classList.remove('d-none');
+        return false;
+    }
+    document.getElementById('error-plan').classList.add('d-none');
+    return true;
+}
+
+function validarPaso2() {
+    verificarIncompatibilidad4K();
+    return true;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initPaso1();
+    initPaso2();
+});
