@@ -17,7 +17,6 @@
             ONEFUTBOL
         </a>
 
-        <!-- Botón menú móvil -->
         <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <i class="bi bi-list text-white fs-2"></i>
         </button>
@@ -55,9 +54,9 @@
                 <button class="btn btn-dark text-white border border-secondary px-3 rounded-pill ms-lg-1 mt-2 mt-lg-0">
                     Inicia sesión
                 </button>
-                <button class="btn btn-light text-dark fw-bold px-3 rounded-pill mt-2 mt-lg-0">
-                    Únete
-                </button>
+                <a href="contratacion.html" class="btn btn-light text-dark fw-bold px-3 rounded-pill">
+    Únete
+</a>
             </div>
         </div>
     </div>
@@ -712,6 +711,25 @@
         </div>
     </div>
 </footer>
+<div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="modalExitoLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border border-secondary rounded-4">
+            <div class="modal-header border-bottom border-secondary">
+                <h5 class="modal-title fw-bold text-success d-flex align-items-center gap-2" id="modalExitoLabel">
+                    <i class="bi bi-check-circle-fill fs-4"></i> Solicitud registrada correctamente
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-secondary">
+                <p class="mb-1 text-white">¡Gracias por unirte a <strong>OneFootball TV</strong>!</p>
+                <p class="small mb-0">Hemos registrado tu contratación simulada de forma correcta. Ya puedes seguir disfrutando de todo el contenido.</p>
+            </div>
+            <div class="modal-footer border-top border-secondary">
+                <button type="button" class="btn btn-light rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Entendido</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="../js/bootstrap.min.js"></script>
 </body>
