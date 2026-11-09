@@ -239,7 +239,54 @@
         <span class="fw-bold text-success fs-5" id="precio-total-display">0,00 € / mes</span>
     </div>
 </fieldset>
+<fieldset class="step-step d-none" id="step-3">
+    <h4 class="fw-bold text-white mb-1">3. Datos personales</h4>
+    <p class="text-secondary small mb-4">Introduce tus datos de contacto. Debes ser mayor de 18 años para realizar la contratación.</p>
 
+    <div class="row g-3">
+        <div class="col-12 col-md-6">
+            <label for="nombre" class="form-label text-white-50 small">Nombre *</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="nombre">
+            <div class="invalid-feedback" id="error-nombre">Introduce un nombre válido.</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="apellidos" class="form-label text-white-50 small">Apellidos *</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="apellidos">
+            <div class="invalid-feedback" id="error-apellidos">Introduce tus apellidos.</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="dni" class="form-label text-white-50 small">DNI / NIE *</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="dni" placeholder="12345678Z">
+            <div class="invalid-feedback" id="error-dni">DNI no válido (comprueba los 8 números y la letra de control).</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="telefono" class="form-label text-white-50 small">Teléfono *</label>
+            <input type="tel" class="form-control bg-dark text-white border-secondary" id="telefono" placeholder="612345678">
+            <div class="invalid-feedback" id="error-telefono">Introduce un teléfono español válido (9 dígitos comenzando por 6, 7, 8 o 9).</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="email" class="form-label text-white-50 small">Correo electrónico *</label>
+            <input type="email" class="form-control bg-dark text-white border-secondary" id="email" placeholder="usuario@ejemplo.com">
+            <div class="invalid-feedback" id="error-email">Introduce un formato de correo electrónico válido.</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="confirmar-email" class="form-label text-white-50 small">Confirmar correo electrónico *</label>
+            <input type="email" class="form-control bg-dark text-white border-secondary" id="confirmar-email">
+            <div class="invalid-feedback" id="error-confirmar-email">Los correos electrónicos no coinciden.</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="fecha-nacimiento" class="form-label text-white-50 small">Fecha de nacimiento *</label>
+            <input type="date" class="form-control bg-dark text-white border-secondary" id="fecha-nacimiento">
+            <div class="invalid-feedback" id="error-fecha-nacimiento">Debes ser mayor de 18 años para contratar.</div>
+        </div>
+    </div>
+</fieldset>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/contratacion.js"></script>
 </body>
