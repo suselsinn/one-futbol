@@ -218,3 +218,131 @@ document.addEventListener('DOMContentLoaded', () => {
     initPaso1();
     initPaso2();
 });
+function validarDNI(dni) {
+    const dniLimpio = dni.trim().toUpperCase();
+    const regexDNI = /^[0-9]{8}[A-Z]$/;
+    
+    if (!regexDNI.test(dniLimpio)) return false;
+
+    const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+    const numero = parseInt(dniLimpio.substring(0, 8), 10);
+    const letraIngresada = dniLimpio.charAt(8);
+
+    return letras[numero % 23] === letraIngresada;
+}
+
+function validarTelefono(telefono) {
+    let tfnoLimpio = telefono.trim().replace(/\s+/g, '');
+    if (tfnoLimpio.startsWith('+34')) {
+        tfnoLimpio = tfnoLimpio.substring(3);
+    }
+    const regexTfno = /^[6789]\d{8}$/;
+    return regexTfno.test(tfnoLimpio);
+}
+
+function validarEmail(email) {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexEmail.test(email.trim().toLowerCase());
+}
+
+function validarEdad(fechaStr) {
+    if (!fechaStr) return false;
+
+    const fechaNac = new Date(fechaStr);
+    const hoy = new Date();
+
+    if (isNaN(fechaNac.getTime()) || fechaNac > hoy) return false;
+
+    let edad = hoy.getFullYear() - fechaNac.getFullYear();
+    const mesDiff = hoy.getMonth() - fechaNac.getMonth();
+    const diaDiff = hoy.getDate() - fechaNac.getDate();
+
+    if (mesDiff < 0 || (mesDiff === 0 && diaDiff < 0)) {
+        edad--;
+    }
+
+    return edad >= 18;
+}
+
+function setFieldError(fieldId, isError) {
+    const input = document.getElementById(fieldId);
+    if (!input) return;
+
+    if (isError) {
+        input.classList.add('is-invalid');
+        input.classList.remove('is-valid');
+    } else {
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+    }
+}
+
+function validarPaso3() {
+    let esValido = true;
+
+    const nombre = document.getElementById('nombre').value.trim();
+    if (nombre.length === 0) {
+        setFieldError('nombre', true);
+        esValido = false;
+    } else {
+        setFieldError('nombre', false);
+    }
+
+    const apellidos = document.getElementById('apellidos').value.trim();
+    if (apellidos.length === 0) {
+        setFieldError('apellidos', true);
+        esValido = false;
+    } else {
+        setFieldError('apellidos', false);
+    }
+
+    const dni = document.getElementById('dni').value;
+    if (!validarDNI(dni)) {
+        setFieldError('dni', true);
+        esValido = false;
+    } else {
+        setFieldError('dni', false);
+    }
+
+    const telefono = document.getElementById('telefono').value;
+    if (!validarTelefono(telefono)) {
+        setFieldError('telefono', true);
+        esValido = false;
+    } else {
+        setFieldError('telefono', false);
+    }
+
+    const email = document.getElementById('email').value;
+    const emailNormalizado = email.trim().toLowerCase();
+    if (!validarEmail(email)) {
+        setFieldError('email', true);
+        esValido = false;
+    } else {
+        setFieldError('email', false);
+    }
+
+    const confirmarEmail = document.getElementById('confirmar-email').value;
+    const confirmarNormalizado = confirmarEmail.trim().toLowerCase();
+    if (confirmarNormalizado !== emailNormalizado || confirmarNormalizado === '') {
+        setFieldError('confirmar-email', true);
+        esValido = false;
+    } else {
+        setFieldError('confirmar-email', false);
+    }
+
+    const fechaNac = document.getElementById('fecha-nacimiento').value;
+    if (!validarEdad(fechaNac)) {
+        setFieldError('fecha-nacimiento', true);
+        esValido = false;
+    } else {
+        setFieldError('fecha-nacimiento', false);
+    }
+
+    return esValido;
+}
+function validarPasoActual(step) {
+    if (step === 1) return validarPaso1();
+    if (step === 2) return validarPaso2();
+    if (step === 3) return validarPaso3();
+    return true;
+}
