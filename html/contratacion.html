@@ -287,6 +287,101 @@
         </div>
     </div>
 </fieldset>
+<fieldset class="step-step d-none" id="step-4">
+    <h4 class="fw-bold text-white mb-1">4. Dirección de facturación</h4>
+    <p class="text-secondary small mb-4">Introduce la dirección de envío en España para la tramitación de tu suscripción.</p>
+
+    <div class="row g-3">
+        <div class="col-12 col-md-8">
+            <label for="direccion" class="form-label text-white-50 small">Tipo y nombre de vía *</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="direccion" placeholder="Calle, Avenida, Plaza...">
+            <div class="invalid-feedback" id="error-direccion">Introduce el nombre de la vía.</div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <label for="numero" class="form-label text-white-50 small">Número *</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="numero" placeholder="12, 4B, s/n">
+            <div class="invalid-feedback" id="error-numero">Introduce el número.</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="piso" class="form-label text-white-50 small">Piso / Puerta (opcional)</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="piso" placeholder="3º A">
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="localidad" class="form-label text-white-50 small">Localidad *</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="localidad">
+            <div class="invalid-feedback" id="error-localidad">Introduce la localidad.</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="provincia" class="form-label text-white-50 small">Provincia *</label>
+            <select class="form-select bg-dark text-white border-secondary" id="provincia">
+                <option value="">Selecciona una provincia...</option>
+                <option value="01">Álava</option>
+                <option value="02">Albacete</option>
+                <option value="03">Alicante</option>
+                <option value="04">Almería</option>
+                <option value="05">Ávila</option>
+                <option value="06">Badajoz</option>
+                <option value="07">Balears, Illes</option>
+                <option value="08">Barcelona</option>
+                <option value="09">Burgos</option>
+                <option value="10">Cáceres</option>
+                <option value="11">Cádiz</option>
+                <option value="12">Castellón</option>
+                <option value="13">Ciudad Real</option>
+                <option value="14">Córdoba</option>
+                <option value="15">A Coruña</option>
+                <option value="16">Cuenca</option>
+                <option value="17">Girona</option>
+                <option value="18">Granada</option>
+                <option value="19">Guadalajara</option>
+                <option value="20">Gipuzkoa</option>
+                <option value="21">Huelva</option>
+                <option value="22">Huesca</option>
+                <option value="23">Jaén</option>
+                <option value="24">León</option>
+                <option value="25">Lleida</option>
+                <option value="26">La Rioja</option>
+                <option value="27">Lugo</option>
+                <option value="28">Madrid</option>
+                <option value="29">Málaga</option>
+                <option value="30">Murcia</option>
+                <option value="31">Navarra</option>
+                <option value="32">Ourense</option>
+                <option value="33">Asturias</option>
+                <option value="34">Palencia</option>
+                <option value="35">Las Palmas</option>
+                <option value="36">Pontevedra</option>
+                <option value="37">Salamanca</option>
+                <option value="38">Santa Cruz de Tenerife</option>
+                <option value="39">Cantabria</option>
+                <option value="40">Segovia</option>
+                <option value="41">Sevilla</option>
+                <option value="42">Soria</option>
+                <option value="43">Tarragona</option>
+                <option value="44">Teruel</option>
+                <option value="45">Toledo</option>
+                <option value="46">Valencia</option>
+                <option value="47">Valladolid</option>
+                <option value="48">Bizkaia</option>
+                <option value="49">Zamora</option>
+                <option value="50">Zaragoza</option>
+                <option value="51">Ceuta</option>
+                <option value="52">Melilla</option>
+            </select>
+            <div class="invalid-feedback" id="error-provincia">Selecciona una provincia.</div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label for="codigo-postal" class="form-label text-white-50 small">Código Postal *</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="codigo-postal" placeholder="37001" maxlength="5">
+            <div class="invalid-feedback" id="error-codigo-postal">El código postal debe tener 5 dígitos y corresponder a la provincia seleccionada.</div>
+        </div>
+    </div>
+</fieldset>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/contratacion.js"></script>
 </body>

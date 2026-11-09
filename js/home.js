@@ -346,3 +346,66 @@ function validarPasoActual(step) {
     if (step === 3) return validarPaso3();
     return true;
 }
+function validarCodigoPostal(cp, provinciaCod) {
+    const cpLimpio = cp.trim();
+    const regexCP = /^[0-9]{5}$/;
+
+    if (!regexCP.test(cpLimpio)) return false;
+    if (!provinciaCod) return false;
+
+    const prefijo = cpLimpio.substring(0, 2);
+    return prefijo === provinciaCod;
+}
+
+function validarPaso4() {
+    let esValido = true;
+
+    const direccion = document.getElementById('direccion').value.trim();
+    if (direccion.length === 0) {
+        setFieldError('direccion', true);
+        esValido = false;
+    } else {
+        setFieldError('direccion', false);
+    }
+
+    const numero = document.getElementById('numero').value.trim();
+    if (numero.length === 0) {
+        setFieldError('numero', true);
+        esValido = false;
+    } else {
+        setFieldError('numero', false);
+    }
+
+    const localidad = document.getElementById('localidad').value.trim();
+    if (localidad.length === 0) {
+        setFieldError('localidad', true);
+        esValido = false;
+    } else {
+        setFieldError('localidad', false);
+    }
+
+    const provincia = document.getElementById('provincia').value;
+    if (provincia === '') {
+        setFieldError('provincia', true);
+        esValido = false;
+    } else {
+        setFieldError('provincia', false);
+    }
+
+    const cp = document.getElementById('codigo-postal').value;
+    if (!validarCodigoPostal(cp, provincia)) {
+        setFieldError('codigo-postal', true);
+        esValido = false;
+    } else {
+        setFieldError('codigo-postal', false);
+    }
+
+    return esValido;
+}
+function validarPasoActual(step) {
+    if (step === 1) return validarPaso1();
+    if (step === 2) return validarPaso2();
+    if (step === 3) return validarPaso3();
+    if (step === 4) return validarPaso4();
+    return true;
+}
