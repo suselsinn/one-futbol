@@ -547,3 +547,158 @@ function validarPaso5() {
 document.addEventListener('DOMContentLoaded', () => {
     initPaso5();
 });
+function setFieldError(fieldId, isError) {
+    const input = document.getElementById(fieldId);
+    if (!input) return;
+
+    const feedbackId = `error-${fieldId}`;
+    const feedbackEl = document.getElementById(feedbackId);
+
+    if (isError) {
+        input.classList.add('is-invalid');
+        input.classList.remove('is-valid');
+        input.setAttribute('aria-invalid', 'true');
+        if (feedbackEl) {
+            input.setAttribute('aria-describedby', feedbackId);
+        }
+    } else {
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+        input.setAttribute('aria-invalid', 'false');
+        input.removeAttribute('aria-describedby');
+    }
+}
+
+function obtenerTodosLosErrores() {
+    const listaErrores = [];
+
+    if (!validarPaso1()) {
+        listaErrores.push({
+            step: 1,
+            fieldId: 'plan-basico',
+            label: 'Plan Principal',
+            mensaje: 'Debes seleccionar un plan principal'
+        });
+    }
+
+    if (!validarPaso3()) {
+        if (document.getElementById('nombre').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 3, fieldId: 'nombre', label: 'Nombre', mensaje: 'Nombre obligatorio o inválido' });
+        }
+        if (document.getElementById('apellidos').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 3, fieldId: 'apellidos', label: 'Apellidos', mensaje: 'Apellidos obligatorios' });
+        }
+        if (document.getElementById('dni').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 3, fieldId: 'dni', label: 'DNI/NIE', mensaje: 'Letra de control de DNI no válida' });
+        }
+        if (document.getElementById('telefono').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 3, fieldId: 'telefono', label: 'Teléfono', mensaje: 'Formato de teléfono español no válido' });
+        }
+        if (document.getElementById('email').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 3, fieldId: 'email', label: 'Correo electrónico', mensaje: 'Formato de email no válido' });
+        }
+        if (document.getElementById('confirmar-email').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 3, fieldId: 'confirmar-email', label: 'Confirmar correo', mensaje: 'Los correos no coinciden' });
+        }
+        if (document.getElementById('fecha-nacimiento').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 3, fieldId: 'fecha-nacimiento', label: 'Fecha de nacimiento', mensaje: 'Debes ser mayor de 18 años' });
+        }
+    }
+
+    if (!validarPaso4()) {
+        if (document.getElementById('direccion').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 4, fieldId: 'direccion', label: 'Dirección', mensaje: 'Vía requerida' });
+        }
+        if (document.getElementById('numero').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 4, fieldId: 'numero', label: 'Número', mensaje: 'Número requerido' });
+        }
+        if (document.getElementById('localidad').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 4, fieldId: 'localidad', label: 'Localidad', mensaje: 'Localidad requerida' });
+        }
+        if (document.getElementById('provincia').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 4, fieldId: 'provincia', label: 'Provincia', mensaje: 'Selecciona una provincia' });
+        }
+        if (document.getElementById('codigo-postal').classList.contains('is-invalid')) {
+            listaErrores.push({ step: 4, fieldId: 'codigo-postal', label: 'Código Postal', mensaje: 'CP de 5 cifras no coincidente con provincia' });
+        }
+    }
+
+    if (!validarPaso5()) {
+        const esTarjeta = document.getElementById('pago-tarjeta').checked;
+        if (esTarjeta) {
+            if (document.getElementById('titular-tarjeta').classList.contains('is-invalid')) {
+                listaErrores.push({ step: 5, fieldId: 'titular-tarjeta', label: 'Titular Tarjeta', mensaje: 'Titular requerido' });
+            }
+            if (document.getElementById('numero-tarjeta').classList.contains('is-invalid')) {
+                listaErrores.push({ step: 5, fieldId: 'numero-tarjeta', label: 'Número Tarjeta', mensaje: 'Número no superó la prueba de Luhn' });
+            }
+            if (document.getElementById('caducidad-tarjeta').classList.contains('is-invalid')) {
+                listaErrores.push({ step: 5, fieldId: 'caducidad-tarjeta', label: 'Caducidad Tarjeta', mensaje: 'Fecha de caducidad caducada o incorrecta' });
+            }
+            if (document.getElementById('cvv-tarjeta').classList.contains('is-invalid')) {
+                listaErrores.push({ step: 5, fieldId: 'cvv-tarjeta', label: 'CVV', mensaje: 'Código CVV de 3 dígitos requerido' });
+            }
+        } else {
+            if (document.getElementById('titular-iban').classList.contains('is-invalid')) {
+                listaErrores.push({ step: 5, fieldId: 'titular-iban', label: 'Titular Cuenta', mensaje: 'Titular de cuenta requerido' });
+            }
+            if (document.getElementById('numero-iban').classList.contains('is-invalid')) {
+                listaErrores.push({ step: 5, fieldId: 'numero-iban', label: 'IBAN', mensaje: 'IBAN no superó Módulo 97' });
+            }
+        }
+    }
+
+    return listaErrores;
+}
+
+function procesarFormularioKO(listaErrores) {
+    const errorSummary = document.getElementById('error-summary');
+    const errorList = document.getElementById('error-list');
+
+    errorList.innerHTML = '';
+
+    listaErrores.forEach(err => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `#${err.fieldId}`;
+        link.className = 'text-danger fw-bold text-decoration-underline';
+        link.textContent = `${err.label}: ${err.mensaje}`;
+        
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            irAlCampoConError(err.step, err.fieldId);
+        });
+
+        li.appendChild(link);
+        errorList.appendChild(li);
+    });
+
+    errorSummary.classList.remove('d-none');
+
+    const primerError = listaErrores[0];
+    irAlCampoConError(primerError.step, primerError.fieldId);
+}
+
+function irAlCampoConError(stepNumber, fieldId) {
+    if (typeof currentStep !== 'undefined') {
+        currentStep = stepNumber;
+        if (typeof updateStepVisibility === 'function') {
+            updateStepVisibility();
+        }
+    }
+
+    setTimeout(() => {
+        const elemento = document.getElementById(fieldId);
+        if (elemento) {
+            elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            elemento.focus();
+        }
+    }, 100);
+}
+
+function ocultarResumenErrores() {
+    const errorSummary = document.getElementById('error-summary');
+    if (errorSummary) {
+        errorSummary.classList.add('d-none');
+    }
+}
