@@ -409,3 +409,141 @@ function validarPasoActual(step) {
     if (step === 4) return validarPaso4();
     return true;
 }
+function validarLuhn(numero) {
+    const numLimpio = numero.replace(/\s+/g, '');
+    if (!/^\d{16}$/.test(numLimpio)) return false;
+
+    let suma = 0;
+    let duplicar = false;
+
+    for (let i = numLimpio.length - 1; i >= 0; i--) {
+        let digito = parseInt(numLimpio.charAt(i), 10);
+        if (duplicar) {
+            digito *= 2;
+            if (digito > 9) digito -= 9;
+        }
+        suma += digito;
+        duplicar = !duplicar;
+    }
+
+    return (suma % 10) === 0;
+}
+
+function validarIBAN(iban) {
+    const ibanLimpio = iban.replace(/\s+/g, '').toUpperCase();
+    if (!/^ES\d{22}$/.test(ibanLimpio)) return false;
+
+    const reordenado = ibanLimpio.substring(4) + "1428" + ibanLimpio.substring(2, 4);
+
+    let resto = 0;
+    for (let i = 0; i < reordenado.length; i++) {
+        resto = (resto * 10 + parseInt(reordenado.charAt(i), 10)) % 97;
+    }
+
+    return resto === 1;
+}
+
+function validarCaducidad(caducidad) {
+    const cadLimpia = caducidad.trim();
+    if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(cadLimpia)) return false;
+
+    const partes = cadLimpia.split('/');
+    const mes = parseInt(partes[0], 10);
+    const ano = 2000 + parseInt(partes[1], 10);
+
+    const hoy = new Date();
+    const anoActual = hoy.getFullYear();
+    const mesActual = hoy.getMonth() + 1;
+
+    if (ano < anoActual) return false;
+    if (ano === anoActual && mes < mesActual) return false;
+
+    return true;
+}
+
+function initPaso5() {
+    const radioTarjeta = document.getElementById('pago-tarjeta');
+    const radioIBAN = document.getElementById('pago-iban');
+    const bloqueTarjeta = document.getElementById('bloque-tarjeta');
+    const bloqueIBAN = document.getElementById('bloque-iban');
+
+    function alternarMetodos() {
+        if (radioTarjeta.checked) {
+            bloqueTarjeta.classList.remove('d-none');
+            bloqueIBAN.classList.add('d-none');
+            setFieldError('titular-iban', false);
+            setFieldError('numero-iban', false);
+        } else {
+            bloqueIBAN.classList.remove('d-none');
+            bloqueTarjeta.classList.add('d-none');
+            setFieldError('titular-tarjeta', false);
+            setFieldError('numero-tarjeta', false);
+            setFieldError('caducidad-tarjeta', false);
+            setFieldError('cvv-tarjeta', false);
+        }
+    }
+
+    radioTarjeta.addEventListener('change', alternarMetodos);
+    radioIBAN.addEventListener('change', alternarMetodos);
+}
+
+function validarPaso5() {
+    let esValido = true;
+    const esTarjeta = document.getElementById('pago-tarjeta').checked;
+
+    if (esTarjeta) {
+        const titular = document.getElementById('titular-tarjeta').value.trim();
+        if (titular.length === 0) {
+            setFieldError('titular-tarjeta', true);
+            esValido = false;
+        } else {
+            setFieldError('titular-tarjeta', false);
+        }
+
+        const numero = document.getElementById('numero-tarjeta').value;
+        if (!validarLuhn(numero)) {
+            setFieldError('numero-tarjeta', true);
+            esValido = false;
+        } else {
+            setFieldError('numero-tarjeta', false);
+        }
+
+        const caducidad = document.getElementById('caducidad-tarjeta').value;
+        if (!validarCaducidad(caducidad)) {
+            setFieldError('caducidad-tarjeta', true);
+            esValido = false;
+        } else {
+            setFieldError('caducidad-tarjeta', false);
+        }
+
+        const cvv = document.getElementById('cvv-tarjeta').value.trim();
+        if (!/^\d{3}$/.test(cvv)) {
+            setFieldError('cvv-tarjeta', true);
+            esValido = false;
+        } else {
+            setFieldError('cvv-tarjeta', false);
+        }
+    } else {
+        const titular = document.getElementById('titular-iban').value.trim();
+        if (titular.length === 0) {
+            setFieldError('titular-iban', true);
+            esValido = false;
+        } else {
+            setFieldError('titular-iban', false);
+        }
+
+        const iban = document.getElementById('numero-iban').value;
+        if (!validarIBAN(iban)) {
+            setFieldError('numero-iban', true);
+            esValido = false;
+        } else {
+            setFieldError('numero-iban', false);
+        }
+    }
+
+    return esValido;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initPaso5();
+});
