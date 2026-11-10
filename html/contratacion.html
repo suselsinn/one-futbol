@@ -382,6 +382,73 @@
         </div>
     </div>
 </fieldset>
+<fieldset class="step-step d-none" id="step-5">
+    <h4 class="fw-bold text-white mb-1">5. Método de pago</h4>
+    <p class="text-secondary small mb-4">Selecciona el método de pago activo e introduce los datos correspondientes.</p>
+
+    <div class="row g-3 mb-4">
+        <div class="col-12 col-md-6">
+            <div class="form-check card bg-dark text-white border-secondary p-3 cursor-pointer" id="card-metodo-tarjeta">
+                <input class="form-check-input me-2" type="radio" name="metodo_pago" id="pago-tarjeta" value="tarjeta" checked>
+                <label class="form-check-label fw-bold text-white cursor-pointer" for="pago-tarjeta">
+                    <i class="bi bi-credit-card-fill text-success me-2"></i> Tarjeta bancaria
+                </label>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-check card bg-dark text-white border-secondary p-3 cursor-pointer" id="card-metodo-iban">
+                <input class="form-check-input me-2" type="radio" name="metodo_pago" id="pago-iban" value="iban">
+                <label class="form-check-label fw-bold text-white cursor-pointer" for="pago-iban">
+                    <i class="bi bi-bank2 text-success me-2"></i> Domiciliación bancaria (IBAN)
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="bloque-tarjeta">
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <label for="titular-tarjeta" class="form-label text-white-50 small">Titular de la tarjeta *</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="titular-tarjeta" placeholder="Nombre completo">
+                <div class="invalid-feedback" id="error-titular-tarjeta">Introduce el nombre del titular de la tarjeta.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="numero-tarjeta" class="form-label text-white-50 small">Número de tarjeta *</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="numero-tarjeta" placeholder="16 dígitos sin espacios" maxlength="16">
+                <div class="invalid-feedback" id="error-numero-tarjeta">El número de tarjeta no es válido (falla la comprobación de Luhn).</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="caducidad-tarjeta" class="form-label text-white-50 small">Fecha de caducidad (MM/AA) *</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="caducidad-tarjeta" placeholder="12/28" maxlength="5">
+                <div class="invalid-feedback" id="error-caducidad-tarjeta">Introduce una fecha válida y no vencida (formato MM/AA).</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="cvv-tarjeta" class="form-label text-white-50 small">Código CVV *</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="cvv-tarjeta" placeholder="123" maxlength="3">
+                <div class="invalid-feedback" id="error-cvv-tarjeta">El CVV debe tener 3 dígitos numéricos.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bloque-iban" class="d-none">
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <label for="titular-iban" class="form-label text-white-50 small">Titular de la cuenta *</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="titular-iban" placeholder="Nombre del titular de la cuenta">
+                <div class="invalid-feedback" id="error-titular-iban">Introduce el nombre del titular de la cuenta.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="numero-iban" class="form-label text-white-50 small">Código IBAN (España) *</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="numero-iban" placeholder="ES9100000000000000000000">
+                <div class="invalid-feedback" id="error-numero-iban">IBAN español no válido (comprueba el formato ES y los dígitos de control de Módulo 97).</div>
+            </div>
+        </div>
+    </div>
+</fieldset>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/contratacion.js"></script>
 </body>
